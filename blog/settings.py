@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+from django.conf import global_settings
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -32,6 +33,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = (
+    'bootstrap_admin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -61,6 +63,10 @@ TEMPLATES = [
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
+                'django.template.context_processors.i18n',
+                'django.template.context_processors.media',
+                'django.template.context_processors.static',
+                'django.template.context_processors.tz',
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
@@ -69,19 +75,19 @@ TEMPLATES = [
         },
     },
 ]
-
+BOOTSTRAP_ADMIN_SIDEBAR_MENU = True
 WSGI_APPLICATION = 'blog.wsgi.application'
 
 
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
-DATABASES = {
+DATABASES = {   
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'blogonetech',
         'USER': 'root',
-        'PASSWORD': '123456',
+        'PASSWORD': 'diego123',
         'HOST': '',
         'PORT': '',
 
@@ -95,7 +101,7 @@ DATABASES = {
 
 LANGUAGE_CODE = 'pt-br'
 
-TIME_ZONE = 'America/São_Paulo'
+TIME_ZONE = 'America/Sao_Paulo'
 
 USE_I18N = True
 
