@@ -8,5 +8,7 @@
             <h1><a href="{% url 'artigo_detalhe' pk=post.pk %}">{{ post.title }}</a></h1>
             <p>{{ post.text|truncatechars:200 }}</p>
         </div>
+
     {% endfor %}
+    {% endif %}
 {% endblock %}
